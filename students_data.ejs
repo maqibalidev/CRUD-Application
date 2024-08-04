@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+</head>
+
+<body>
+	<style>
+		body{
+			font-family:Arial, Helvetica, sans-serif;
+		}
+	</style>
+
+<form action="/search" method="get" style="width: 80%; display: flex; margin: 30px;" >
+	<input type="text" name="search" placeholder="search here" style="text-align: center; padding: 10px; border-radius: 20px; border: 1px solid grey; height: 40px; width: 100%;">
+<button style="color: aliceblue; border-radius: 10px; cursor: pointer;  background-color: black; width: 150px; margin-left: 20px;">Search</button>
+
+</form>
+<form action="/adduser" method="get" style="width: 80%; display: flex; margin: 30px;" >
+	
+	<button style="padding: 20px; color: aliceblue; border-radius: 10px; cursor: pointer;  background-color: rgb(6, 82, 29); width: 150px; margin-left: 20px;">Add User</button>
+
+</form>
+
+<% if(students.length<=0){ %>
+
+	<div style="display: flex; justify-content: center ;"><h2 style="font-size: 30px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">404 no data found</h2></div>
+<div style="display: flex; justify-content: center;" >	<a style="text-decoration: none;border-radius: 20px;  margin: 10px; padding: 20px; background-color: black; color: antiquewhite;" href="/users">Show all users</a>
+</div>
+
+	<%}
+	else{
+	%>
+	
+	<div>
+		<table border="0px" width="100% ">
+			<tr style="background-color: black; color: aliceblue; height: 50px;">
+				<th style="border-radius: 10px; ">name</th>
+				<th style="border-radius: 10px;">email</th>
+				<th style="border-radius: 10px;">password</th>
+			<th style="border-radius: 10px;">delete</th>
+            <th style="border-radius: 10px;">Update</th>
+            </tr>
+			<% for (var i = 0; i < students.length; i++) { %>
+				<% if(i%2==0){ %>
+
+					<tr style="text-align: center;">
+						<td style="background-color: rgba(0, 0, 0, 0.197);"><%= students[i].name %></td>
+						<td style="background-color: rgba(0, 0, 0, 0.197);"><%= students[i].email %></td>
+						<td style="background-color: rgba(0, 0, 0, 0.197);"><%= students[i].password %></td>
+					<td  style="border-radius: 10px; height: 60px; background-color: rgb(148, 32, 32);"">
+						<a style=" color: aliceblue; text-decoration: none;" href="/delete?_id=<%- students[i].id %>"   >delete  </a></td>
+				  
+						<td  style="border-radius: 10px; height: 60px; background-color: rgb(107, 66, 203);"">
+							<a style=" color: aliceblue; text-decoration: none;" href="/update?_id=<%- students[i].id %>"   >Update  </a></td>
+				  
+					</tr>
+
+				<% }
+				else{
+				%>
+				<tr style="text-align: center;">
+					<td  style="background-color: rgba(189, 186, 186, 0.197);"><%= students[i].name %></td>
+					<td style="background-color: rgba(189, 186, 186, 0.197);"> <%= students[i].email %></td>
+					<td style="background-color: rgba(189, 186, 186, 0.197);"><%= students[i].password %></td>
+				<td  style="border-radius: 10px; height: 60px; background-color: rgb(148, 32, 32);"">
+					<a style=" color: aliceblue; text-decoration: none;" href="/delete?_id=<%- students[i].id %>"   >delete  </a></td>
+			  
+					<td  style="border-radius: 10px; height: 60px; background-color: rgb(107, 66, 203);"">
+						<a style=" color: aliceblue; text-decoration: none;" href="/update?_id=<%- students[i].id %>"   >Update  </a></td>
+			  
+				</tr>
+                
+				<% } %>
+			<% } %>
+		</table>
+	</div>
+
+<% } %>
+
+</body>
+</html>

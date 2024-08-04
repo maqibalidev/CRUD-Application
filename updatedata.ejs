@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update Record</title>
+
+	</style>
+</head>
+
+<body>
+
+<div style="width: 60%; display: flex; justify-content: center;align-items: center;  height: 600px; ">
+	
+<form  style="box-shadow: 5px 5px 20px 1px grey; border-radius: 30px; justify-content: center; height: 400px; background-color: rgba(36, 36, 36, 0.271); padding: 30px; width: 50%;"  action="/update-user-data" method="post">
+	
+	<h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Update user</h1>
+	<br>
+	<input type="text" hidden name="_id" value="<%- students[0].id %>">
+	<input style="text-align: center; width: 100%; height: 56px; border-radius: 10px; border: 1px solid grey;" type="text" name="name" value="<%- students[0].name %>" required>
+	<br>
+	<br>
+	<input style="text-align: center; width: 100%; height: 56px; border-radius: 10px; border: 1px solid grey;" type="email" name="email" value="<%- students[0].email %>" required>
+	<br>
+	<br>
+	<input style="text-align: center; width: 100%; height: 56px; border-radius: 10px; border: 1px solid grey;" type="password" name="password" placeholder="please enter password" required>
+
+	<br>
+	<br>
+	<button style="border-radius: 30px; width: 100%; height: 50px; color: aliceblue; background-color: rgba(39, 38, 38, 0.974);">submit</button>
+</form>
+</div>
+
+</body>
+</html>
